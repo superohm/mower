@@ -32,8 +32,4 @@ class Lawn
     {
         return $this->YAxisMax;
     }
-    public function add($a, $b)
-    {
-        return $a + $b;
-    }
 }

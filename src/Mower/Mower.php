@@ -1,6 +1,7 @@
 <?php 
 // src/Mower/Mower.php
 namespace App\Mower;
+use App\Model\MowerInterface;
 use Monolog\Logger;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Processor\UidProcessor;
@@ -8,9 +9,15 @@ use Monolog\Processor\WebProcessor;
 use Monolog\Processor\MemoryUsageProcessor;
 use Monolog\Processor\ProcessIdProcessor;
 use Monolog\Formatter\LineFormatter;
+/*
 
+Class Mower
+Author: Guillaume Migeon
+Description : Class to define the mower and to operate the mower move
 
-class Mower
+*/
+
+class Mower implements MowerInterface
 {
     private $direction; 
     private $xAxis;
@@ -64,10 +71,6 @@ class Mower
     {
         return self::cardinate;
     }
-    public function add($a, $b)
-    {
-        return $a + $b;
-    }
     public function move($d)
     {
         switch ($d) 
@@ -87,7 +90,6 @@ class Mower
     public function rotateLeft()
     {
         $key = array_search($this->getDirection(), self::cardinate);
-        
         if ($key ==0) {
             $key = 3;
         }
@@ -101,7 +103,6 @@ class Mower
     public function rotateRight()
     {
         $key = array_search($this->getDirection(), self::cardinate);
-        
         if ($key ==3) {
             $key = 0;
         }
@@ -146,6 +147,5 @@ class Mower
                 break;
         }
         $this->logger->info("move direction to ". $this->getXAxis()." ".$this->getYAxis());
-        
     }
 }
