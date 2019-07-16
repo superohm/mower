@@ -31,7 +31,7 @@ class Parse
         }
         else 
         {
-            $this->logger->bug("file expected");
+            $this->logger->info("file expected");
         }
         
     }
