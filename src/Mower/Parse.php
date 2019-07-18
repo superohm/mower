@@ -12,8 +12,11 @@ use Monolog\Formatter\LineFormatter;
 
 class Parse
 {
+    /** @var string $file */
     private $file;
+    /** @var string $content */
     private $content;
+    /** @var logger $logger */
     private $logger;
 
     public function __construct ()
@@ -46,6 +49,7 @@ class Parse
     {
         return $this->content;
     }
+    // transform file to array 
     public function parseFile ()
     {
         $rows = explode (PHP_EOL, $this->getContent());

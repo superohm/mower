@@ -1,11 +1,18 @@
 <?php 
 // src/Mower/Lawn.php
 namespace App\Mower;
+/*
 
+Class Lawn
+Author: Guillaume Migeon
+Description : Class to define the lawn size
+
+*/
 class Lawn
 {
-    
+    /** @var int $XAxisMax */
     private  $XAxisMax; 
+    /** @var int $YAxisMax */
     private  $YAxisMax; 
 
     

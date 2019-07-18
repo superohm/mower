@@ -19,12 +19,17 @@ Description : Class to define the mower and to operate the mower move
 
 class Mower implements MowerInterface
 {
+    /** @var string $direction */
     private $direction; 
+    /** @var int $xAxis */
     private $xAxis;
+    /** @var int $yAxis */
     private $yAxis;
-    const cardinate = array("N","E","S","O");
+    /** @var Lawn $lawn */
     private $lawn;
+    /** @var Logger $logger */
     private $logger;
+    const cardinate = array("N","E","S","O");
     
     public function __construct ($d, $x, $y, $lawn)
     {
@@ -103,7 +108,8 @@ class Mower implements MowerInterface
     public function rotateRight()
     {
         $key = array_search($this->getDirection(), self::cardinate);
-        if ($key ==3) {
+        if ($key ==3) 
+        {
             $key = 0;
         }
         else 
